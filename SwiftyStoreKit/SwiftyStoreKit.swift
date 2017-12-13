@@ -159,10 +159,11 @@ public class SwiftyStoreKit {
      *  - Parameter completion: handler for result
      */
     public class func verifyReceipt(
+        receiptVerifyURL: String? = .Production,
         password password: String? = nil,
         session: NSURLSession = NSURLSession.sharedSession(),
         completion:(result: VerifyReceiptResult) -> ()) {
-        InAppReceipt.verify(receiptVerifyURL: .Production, password: password, session: session) { result in
+        InAppReceipt.verify(receiptVerifyURL: receiptVerifyURL, password: password, session: session) { result in
          
             dispatch_async(dispatch_get_main_queue()) {
                 completion(result: result)
