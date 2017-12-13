@@ -158,18 +158,18 @@ public class SwiftyStoreKit {
      *  - Parameter session: the session used to make remote call.
      *  - Parameter completion: handler for result
      */
-    public class func verifyReceipt(
-        receiptVerifyURL: String? = .Production,
+     public class func verifyReceipt(
         password password: String? = nil,
         session: NSURLSession = NSURLSession.sharedSession(),
         completion:(result: VerifyReceiptResult) -> ()) {
-        InAppReceipt.verify(receiptVerifyURL: receiptVerifyURL, password: password, session: session) { result in
+        InAppReceipt.verify(receiptVerifyURL: .Production, password: password, session: session) { result in
          
             dispatch_async(dispatch_get_main_queue()) {
                 completion(result: result)
             }
         }
     }
+
   
     /**
      *  Verify the purchase of a Consumable or NonConsumable product in a receipt
